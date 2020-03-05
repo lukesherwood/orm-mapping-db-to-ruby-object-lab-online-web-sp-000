@@ -9,6 +9,17 @@ class Student
     student.grade = row[2]
     student
   end
+  
+  def self.all_students_in_grade_9
+     sql = <<-SQL
+      SELECT *
+      FROM students
+      where grade = '9th'
+    SQL
+    
+    DB[:conn].execute(sql).map do |row|
+      self.new_from_db(row)
+  end
 
   def self.all
     # retrieve all the rows from the "Students" database
