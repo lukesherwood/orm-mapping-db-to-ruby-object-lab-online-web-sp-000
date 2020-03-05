@@ -9,6 +9,8 @@ class Student
     student.grade = row[2]
     student
   end
+  
+  def 
   def self.first_student_in_grade_10
     sql = <<-SQL
       SELECT *
